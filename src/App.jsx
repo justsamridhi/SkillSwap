@@ -6,6 +6,8 @@ import introImg from './assets/intro.jpg';
 import { BsPerson } from "react-icons/bs";
 import { IoMdStarOutline } from "react-icons/io";
 import { MdOutlineEmail } from "react-icons/md";
+import { PiQuotesFill } from "react-icons/pi";
+
 
 
 
@@ -19,8 +21,8 @@ function App() {
           <ul className=' flex justify-between items-center'>
             <li><a href="#home" className=' font-highlights text-3xl' >SkillSwap</a></li>
             <div className='flex justify-center items-center gap-12 font-body'>
-              <li><a href="#about">Login</a></li>
-              <li className=' p-4 rounded-2xl bg-primary'><a href="#contact">SignUp</a></li>
+              <li><a href="#about" className=' font-bold hover:text-primary'>Login</a></li>
+              <li className=' p-4 rounded-2xl bg-primary font-bold'><a href="#contact">SignUp</a></li>
             </div>
           </ul>
         </nav>
@@ -31,41 +33,81 @@ function App() {
               <p className=' font-body'>Join learners and mentors in a space where people teach what <br /> they know and learn what they love — together.
               </p>
               <div className='flex gap-6'>
-                <button className='bg-primary rounded-3xl p-4 text-white font-body relative top-auto hover:text-xl transition-all ease-in-out'>Get Started </button>
-                <button className='border-primary border-2 text-primary font-semibold rounded-3xl p-4 font-body relative top-auto hover:text-xl transition-all ease-in-out'>How it works</button>
+                <button className='bg-primary rounded-3xl p-4 text-white font-body relative top-auto scale-1 hover:scale-125 transition-all ease-in-out'>Get Started </button>
+                <button className='border-primary border-2 text-primary font-semibold rounded-3xl p-4 font-body relative scale-1 top-auto hover:scale-110 transition-all ease-in-out'>How it works</button>
               </div>
             </div>
-            <img src={introImg} alt="" className='h-85 w-96 rounded-xl rotate-6 hover:rotate-0 transition-all ease-in' />
+            <img src={introImg} alt="" className='h-85 w-96 rounded-xl rotate-6 hover:-rotate-6 transition-all ease-in drop-shadow-lg shadow-black' />
           </div>
         </section>
-        <section className='h-full w-full m-auto py-60'>
+        <section className='h-full w-full m-auto py-40'>
           <div className='flex flex-col items-center gap-6 justify-center'>
             <h1 className='text-6xl font-bold font-body'>How <span className='text-primary font-highlights font-light' >SkillSwap</span> Works ?</h1>
             <p className='font-body'>Three simple steps to start your learning journey</p>
             <div className='flex gap-8 justify-center items-center  '>
-              <div className='p-6 m-6 flex flex-col justify-center items-center w-1/4 text-center gap-4'>
-                <div className='flex justify-center bg-primary p-6 items-center rounded-full'>
-                  <BsPerson className='text-5xl text-white'  />
+              <div className='p-6 m-6 flex flex-col justify-center items-center w-1/4 text-center gap-4 relative bottom-0 hover:bottom-4 transition-all ease-in-out h-80'>
+                <div className='flex justify-center bg-gradient-to-tl from-blue-500 to-primary p-6 items-center rounded-full'>
+                  <BsPerson className='text-5xl text-white' />
                 </div>
                 <h1 className='font-body text-xl font-semibold'>Create Your Profile</h1>
                 <p className='font-body'>Set up your profile and showcase the skills you want to teach and learn. It takes just 2 minutes.</p>
               </div>
-              <div className='p-6 m-6 flex flex-col justify-center items-center w-1/4 text-center gap-4'>
+              <div className='p-6 m-6 flex flex-col justify-center items-center w-1/4 text-center gap-4 relative bottom-0 hover:bottom-4 transition-all ease-in-out h-80'>
                 <div className='flex justify-center bg-gradient-to-br from-blue-500 to-primary p-6 items-center rounded-full'>
-                  <IoMdStarOutline className='text-5xl text-white'  />
+                  <IoMdStarOutline className='text-5xl text-white' />
 
                 </div>
                 <h1 className='font-body text-xl font-semibold'>List your skills</h1>
                 <p className='font-body'>Add skills you can teach and ones you want to learn. From coding to cooking , every skill matters.</p>
               </div>
-              <div className='p-6 m-6 flex flex-col justify-center items-center w-1/4 text-center gap-4'>
+              <div className='p-6 m-6 flex flex-col justify-center items-center w-1/4 text-center gap-4 relative bottom-0 hover:bottom-4 transition-all ease-in-out h-80'>
                 <div className='flex justify-center bg-gradient-to-tl from-blue-500 to-primary p-6 items-center rounded-full'>
-                  <MdOutlineEmail className='text-5xl text-white'  />
+                  <MdOutlineEmail className='text-5xl text-white' />
 
 
                 </div>
                 <h1 className='font-body text-xl font-semibold'>Connect & Swap</h1>
                 <p className='font-body'>Get matched with perfect skill partners and start exchanging knowledge through video calls or messages.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className='h-full w-full m-auto py-40 bg-tertiary'>
+          <div className='flex flex-col items-center gap-10 justify-center'>
+            <h1 className='text-6xl font-bold font-body'>What our <span className='text-primary font-highlights font-light' >Community</span> Says ?</h1>
+            <div className="p-4 w-full flex justify-center items-center gap-4">
+              <div className="h-full bg-white p-8 rounded w-1/4 relative bottom-0 hover:bottom-4 transition-all ease-in-out">
+                <PiQuotesFill className='text-3xl m-4' />
+                <p className="leading-relaxed mb-6">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</p>
+                <a className="inline-flex items-center">
+                  <img alt="testimonial" src="https://dummyimage.com/107x107" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center" />
+                  <span className="flex-grow flex flex-col pl-4">
+                    <span className="title-font font-medium text-gray-900">Alper Kamu</span>
+                    <span className="text-gray-500 text-sm">DESIGNER</span>
+                  </span>
+                </a>
+              </div>
+              <div className="h-full bg-white p-8 rounded w-1/4 relative bottom-0 hover:bottom-4 transition-all ease-in-out">
+                <PiQuotesFill className='text-3xl m-4' />
+                <p className="leading-relaxed mb-6">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</p>
+                <a className="inline-flex items-center">
+                  <img alt="testimonial" src="https://dummyimage.com/107x107" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center" />
+                  <span className="flex-grow flex flex-col pl-4">
+                    <span className="title-font font-medium text-gray-900">Alper Kamu</span>
+                    <span className="text-gray-500 text-sm">DESIGNER</span>
+                  </span>
+                </a>
+              </div>
+              <div className="h-full bg-white p-8 rounded w-1/4 relative bottom-0 hover:bottom-4 transition-all ease-in-out">
+                <PiQuotesFill className='text-3xl m-4' />
+                <p className="leading-relaxed mb-6">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland.</p>
+                <a className="inline-flex items-center">
+                  <img alt="testimonial" src="https://dummyimage.com/107x107" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center" />
+                  <span className="flex-grow flex flex-col pl-4">
+                    <span className="title-font font-medium text-gray-900">Alper Kamu</span>
+                    <span className="text-gray-500 text-sm">DESIGNER</span>
+                  </span>
+                </a>
               </div>
             </div>
           </div>
