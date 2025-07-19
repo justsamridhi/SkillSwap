@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../firebase' // import from your firebase.js
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { doc, getDoc } from 'firebase/firestore'
+import { db } from '../firebase' // import from your firebase.js
 
 const Login = () => {
   const navigate = useNavigate()
@@ -18,9 +21,28 @@ const Login = () => {
     setError('') // reset error
 
     try {
-      await signInWithEmailAndPassword(auth, email, password)
-      console.log('Login successful ✅')
-      navigate('/dashboard') // Change path as per your app flow
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Get user's profile data from Firestore
+      const docRef = doc(db, 'users', user.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const userData = docSnap.data();
+        console.log("User profile data:", userData);
+
+        // Option 1: Store in localStorage (if needed across pages)
+        localStorage.setItem('userData', JSON.stringify(userData));
+
+        // Option 2: Navigate with state (temporary)
+        navigate('/userprofile', { state: { userData } });
+
+      } else {
+        console.log("No profile found for this user");
+        // You can redirect them to profile setup page if needed
+        navigate('/profilesetup');
+      }
     } catch (err) {
       setError(err.message)
       console.log(err)
@@ -64,7 +86,7 @@ const Login = () => {
           </button>
         </form>
         <p className="text-sm text-center text-gray-600">
-          Don’t have an account? <a href="/signup" className="text-primary underline">Sign up</a>
+          Don’t have an account? <Link to="/signup" className="text-primary underline">Sign up</Link>
         </p>
       </div>
     </div>

@@ -2,6 +2,7 @@ import React , {useState} from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { Navigate, useNavigate } from 'react-router-dom';
 import { auth } from '../firebase'  // adjust path if needed
+import { Link } from 'react-router-dom';
 
 
 const Signup = () => {
@@ -22,7 +23,7 @@ const Signup = () => {
             try {
                 await createUserWithEmailAndPassword(auth, email, password)
                 console.log('User created successfully')
-                navigate('/dashboard')
+                navigate('/profilesetup')
             }
             catch (error) {
                 setError(error.message)
@@ -90,7 +91,7 @@ const Signup = () => {
           </button>
         </form>
         <p className="text-sm text-center text-gray-600">
-          Already have an account? <a href="/login" className="text-primary underline">Log in</a>
+          Already have an account? <Link to="/login" className="text-primary underline">Log in</Link>
         </p>
       </div>
     </div>
