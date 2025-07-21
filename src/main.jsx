@@ -7,6 +7,7 @@ import Signup from "./Pages/Signup.jsx"
 import Login from "./Pages/Login.jsx"
 import ProfileSetup  from './Pages/ProfileSetup.jsx'
 import UserProfile from './Pages/UserProfile.jsx'
+import Dashboard from './Pages/Dashboard.jsx'
 
 const router = createBrowserRouter([
   {path:"/" , element:<App />},
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
   {path:"/login" , element: <Login />},
   {path:'/profilesetup' , element: <ProfileSetup />},
   {path:'/userprofile' , element: <UserProfile />},
+  {path:'/dashboard' , element: <Dashboard />},
 ])
 
 createRoot(document.getElementById('root')).render(

@@ -58,42 +58,42 @@ const UserProfile = () => {
                         <div className='border-2 rounded-2xl gap-3 border-primary p-4 w-full flex items-center justify-start' >
                             <img src={location} className='w-10 h-10' alt="" />
                             <div className='flex flex-col items-center justify-start'>
-                                <label className='text-2xl font-semibold' >Location :</label>
+                                <label className='text-2xl font-extrabold font-body text-primary' >Location :</label>
                                 <p className='' >{userData.location || "Not set"}</p>
                             </div>
                         </div>
                         <div className='border-2 gap-3 rounded-2xl border-primary p-4 w-full flex items-center justify-start' >
                             <img src={bio} className='w-10 h-10' alt="" />
                             <div className='flex flex-col text-left'>
-                                <label className='text-2xl font-semibold' >Bio :</label>
+                                <label className='text-2xl font-extrabold font-body text-primary' >Bio :</label>
                                 <p className='' >{userData.bio || "Not set"}</p>
                             </div>
                         </div>
                         <div className='border-2 gap-3  rounded-2xl border-primary p-4 w-full flex items-center justify-start' >
                             <img src={want} className='w-10 h-10' alt="" />
                             <div className='flex flex-col items-start justify-start'>
-                                <label className='text-2xl font-semibold' >Skills Offered :</label>
+                                <label className='text-2xl font-extrabold font-body text-primary' >Skills Offered :</label>
                                 <p className=' text-left' >{userData.skillsOffered || "Not set"}</p>
                             </div>
                         </div>
                         <div className='border-2 gap-3  rounded-2xl border-primary p-4 w-full flex items-center justify-start' >
                             <img src={target} className='w-10 h-10' alt="" />
                             <div className='flex flex-col items-start justify-start'>
-                                <label className='text-2xl font-semibold' >Skills Wanted :</label>
+                                <label className='text-2xl font-extrabold font-body text-primary' >Skills Wanted :</label>
                                 <p className=' text-left' >{userData.skillsWanted || "Not set"}</p>
                             </div>
                         </div>
                         <div className='border-2 gap-3  rounded-2xl border-primary p-4 w-full flex items-center justify-start' >
                             <img src={time} className='w-10 h-10' alt="" />
                             <div className='flex flex-col items-start justify-start'>
-                                <label className='text-2xl font-semibold' >Availability :</label>
+                                <label className='text-2xl font-extrabold font-body text-primary' >Availability :</label>
                                 <p className=' text-left' >{userData.availability || "Not set"}</p>
                             </div>
                         </div>
                         <div className='border-2 gap-3  rounded-2xl border-primary p-4 w-full flex items-center justify-start' >
                             <img src={lock} className='w-10 h-10' alt="" />
                             <div className='flex flex-col items-start justify-start'>
-                                <label className='text-2xl font-semibold' >Visibility :</label>
+                                <label className='text-2xl font-extrabold font-body text-primary' >Visibility :</label>
                                 <p className=' text-left' >{userData.isPublic ? "Public" : "Private"}</p>
                             </div>
                         </div>
