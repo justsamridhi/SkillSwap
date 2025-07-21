@@ -44,11 +44,11 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="w-screen min-h-screen bg-background p-6 font-body">
+        <div className="w-screen min-h-screen bg-background p-6 flex flex-col  items-center font-body">
             <Navbar />
-            <div className='flex justify-center items-center flex-col w-screen gap-4'>
-                <div className="flex items-center gap-4 w-full justify-center">
-                    <div className='p-2 border rounded-md bg-white flex justify-center items-center'>
+            <div className='flex justify-center items-center flex-col w-full gap-4 m-4'>
+                <div className="flex flex-col md:flex-row items-center gap-4 w-full justify-center">
+                    <div className='p-2  border rounded-md bg-white flex justify-center items-center'>
                         <select
                             value={filterType}
                             onChange={(e) => setFilterType(e.target.value)}
@@ -63,7 +63,7 @@ const Dashboard = () => {
                     <input
                         type="text"
                         placeholder="Search..."
-                        className="p-2 border rounded-md w-3/6"
+                        className="p-2 border w-88 rounded-md md:w-3/6"
                         value={searchValue}
                         onChange={(e) => setSearchValue(e.target.value)}
                     />
@@ -89,7 +89,7 @@ const Dashboard = () => {
                         Search
                     </button>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-6 w-full m-4 items-center">
                     {filteredUsers.length === 0 && (
                         <p className="text-center col-span-full text-gray-600">No users found.</p>
                     )}

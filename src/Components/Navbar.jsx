@@ -5,7 +5,7 @@ import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
   return (
-    <nav className='w-11/12 m-auto my-4 mb-10 overflow-hidden'>
+    <nav className='w-full p-auto p-8 overflow-hidden bg-white rounded-3xl'>
           <ul className=' flex justify-between items-center'>
             <li>
               <a href="#home" className=' font-highlights text-3xl' >
