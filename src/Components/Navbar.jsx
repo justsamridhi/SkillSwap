@@ -21,7 +21,7 @@ const Navbar = () => {
                 </Link>
               </li><li>
                 <Link
-                  to="/login"
+                  to="/myswap"
                   className=' hover:text-primary'>
                   MySwap
                 </Link>

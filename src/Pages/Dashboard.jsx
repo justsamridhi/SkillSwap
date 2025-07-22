@@ -3,8 +3,9 @@ import { db } from '../firebase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { IoMdArrowDropdown } from "react-icons/io";
-
+import { addDoc } from "firebase/firestore";
 import Navbar from '../Components/Navbar';
+
 
 const Dashboard = () => {
     const [allUsers, setAllUsers] = useState([]);
@@ -22,7 +23,7 @@ const Dashboard = () => {
             const snapshot = await getDocs(usersRef);
             const users = snapshot.docs
                 .map(doc => ({ id: doc.id, ...doc.data() }))
-                
+
             setAllUsers(users);
             setFilteredUsers(users);
         };
@@ -103,7 +104,21 @@ const Dashboard = () => {
                             <p><span className="font-semibold">Wants:</span> {user.skillsWanted}</p>
                             <p><span className="font-semibold">Availability:</span> {user.availability}</p>
                             <button
-                                onClick={() => alert(`Request sent to ${user.name}`)}
+                                onClick={async () => {
+                                    try {
+                                        await addDoc(collection(db, 'swaps'), {
+                                            from: currentUser.uid,
+                                            to: user.id,
+                                            status: 'pending',
+                                            timestamp: new Date(),
+                                        });
+                                        alert(`Request sent to ${user.name}`);
+                                    } catch (error) {
+                                        console.error('Error sending request:', error);
+                                        alert('Failed to send request.');
+                                    }
+                                }}
+
                                 className="mt-3 px-4 py-2 bg-primary text-white rounded-md hover:bg-secondary"
                             >
                                 Send Request

@@ -47,9 +47,9 @@ const UserProfile = () => {
     }
 
     return (
-        <>
+        <div className="w-full bg-primary p-6 flex flex-col  items-center font-body">
             <Navbar />
-            <section className='h-screen flex justify-center items-center bg-primary'>
+            <section className='h-fit m-4 flex justify-center items-center w-full '>
 
                 <div className="w-11/12 h-5/6 flex flex-col justify-center items-center bg-tertiary p-8 rounded-2xl shadow-2xl">
                     <h2 className="text-3xl font-body text-center mb-6">Welcome,<span className=' text-primary text-5xl font-highlights'> {userData.name}</span></h2>
@@ -110,7 +110,7 @@ const UserProfile = () => {
 
                 </div>
             </section>
-        </>
+        </div>
     );
 };
 

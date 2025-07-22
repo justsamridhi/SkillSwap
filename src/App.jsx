@@ -8,6 +8,7 @@ import { IoMdStarOutline } from "react-icons/io";
 import { MdOutlineEmail } from "react-icons/md";
 import { PiQuotesFill } from "react-icons/pi";
 import { Link } from 'react-router-dom';
+import VantaBackground from './Components/VantaBackground';
 
 
 
@@ -18,7 +19,8 @@ function App() {
   return (
     <>
       <div>
-        <nav className='w-11/12 m-auto my-4'>
+        <VantaBackground />
+        <nav className='w-11/12 m-auto my-4 bg-white p-4 rounded-2xl'>
           <ul className=' flex justify-between items-center'>
             <li>
               <a href="#home" className=' font-highlights text-3xl' >
@@ -43,10 +45,10 @@ function App() {
             </div>
           </ul>
         </nav>
-        <section className='h-full py-60 w-full m-auto flex justify-center items-center bg-tertiary'>
+        <section className='h-full py-60 w-full m-auto flex justify-center items-center'>
           <div className='flex lg:flex-row flex-col lg:gap-16 gap-24 justify-around items-center w-full '>
             <div className='text-left gap-6 flex flex-col'>
-              <h1 className='text-7xl text-primary font-highlights'>A community where skills <br /> connect.</h1>
+              <h1 className='text-7xl text-black font-highlights'>A community where skills <br /> connect.</h1>
               <p className=' font-body'>Join learners and mentors in a space where people teach what <br /> they know and learn what they love — together.
               </p>
               <div className='flex gap-6'>
@@ -54,12 +56,12 @@ function App() {
                 to='/signup'
                 >
                 <button
-                  className='bg-primary rounded-3xl p-4 text-white font-body relative top-auto scale-1 hover:scale-125 transition-all ease-in-out'
+                  className='bg-white rounded-3xl p-4 text-primary font-body relative top-auto scale-1 hover:scale-125 transition-all ease-in-out'
                 >
                   Get Started
                 </button>
                 </Link>
-                <button className='border-primary border-2 text-primary font-semibold rounded-3xl p-4 font-body relative scale-1 top-auto hover:scale-110 transition-all ease-in-out'>
+                <button className='border-white border-2 text-white font-semibold rounded-3xl p-4 font-body relative scale-1 top-auto hover:scale-110 transition-all ease-in-out'>
                   <a href="#works">
                   How it works
                   </a>

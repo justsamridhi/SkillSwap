@@ -8,6 +8,7 @@ import Login from "./Pages/Login.jsx"
 import ProfileSetup  from './Pages/ProfileSetup.jsx'
 import UserProfile from './Pages/UserProfile.jsx'
 import Dashboard from './Pages/Dashboard.jsx'
+import MySwap from './Pages/MySwap.jsx'
 
 const router = createBrowserRouter([
   {path:"/" , element:<App />},
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
   {path:'/profilesetup' , element: <ProfileSetup />},
   {path:'/userprofile' , element: <UserProfile />},
   {path:'/dashboard' , element: <Dashboard />},
+  {path:'/myswap' , element: <MySwap />},
 ])
 
 createRoot(document.getElementById('root')).render(
