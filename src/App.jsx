@@ -27,7 +27,7 @@ function App() {
                 SkillSwap
               </a>
             </li>
-            <div className='flex justify-center items-center gap-12 font-body'>
+            <div className='flex justify-center items-center gap-12 font-body md:invisible'>
               <li>
                 <Link
                   to="/login"
@@ -36,7 +36,7 @@ function App() {
                 </Link>
               </li>
               <li
-                className=' p-4 rounded-2xl bg-primary font-bold'>
+                className=' p-4 rounded-2xl bg-primary font-bold invisible md:visible'>
                 <Link
                   to="/signup">
                   SignUp
