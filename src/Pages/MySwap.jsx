@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { db } from '../firebase';
 import { collection, getDocs, query, where, doc, updateDoc, getDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 
 const MySwap = () => {
   const auth = getAuth();
   const currentUser = auth.currentUser;
+  const navigate = useNavigate();
 
   const [incomingSwaps, setIncomingSwaps] = useState([]);
   const [outgoingSwaps, setOutgoingSwaps] = useState([]);
@@ -16,7 +18,6 @@ const MySwap = () => {
     const fetchSwaps = async () => {
       if (!currentUser) return;
 
-      // Fetch all swaps involving this user
       const incomingQuery = query(collection(db, 'swaps'), where('to', '==', currentUser.uid));
       const outgoingQuery = query(collection(db, 'swaps'), where('from', '==', currentUser.uid));
 
@@ -31,7 +32,7 @@ const MySwap = () => {
       setIncomingSwaps(incoming);
       setOutgoingSwaps(outgoing);
 
-      // Fetch user names for mapping
+      // Collect unique user IDs
       const allUserIds = new Set([
         ...incoming.map(s => s.from),
         ...incoming.map(s => s.to),
@@ -54,14 +55,15 @@ const MySwap = () => {
   }, [currentUser]);
 
   const handleResponse = async (id, response) => {
-    await updateDoc(doc(db, 'swaps', id), {
-      status: response,
-    });
-    // Refresh swap list
+    await updateDoc(doc(db, 'swaps', id), { status: response });
     setIncomingSwaps(prev =>
       prev.map(swap => (swap.id === id ? { ...swap, status: response } : swap))
     );
   };
+
+  const acceptedSwaps = [...incomingSwaps, ...outgoingSwaps].filter(
+    (swap) => swap.status === 'accepted'
+  );
 
   return (
     <div className="min-h-screen bg-background p-6 font-body">
@@ -112,6 +114,27 @@ const MySwap = () => {
               </div>
             ))
           )}
+        </div>
+
+        {/* Accepted Requests (Connections) */}
+        <div className="bg-tertiary p-6 rounded-lg shadow-lg col-span-full">
+          <h2 className="text-xl font-semibold mb-4">💬 Connections</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {acceptedSwaps.length > 0 ? acceptedSwaps.map(swap => {
+              const connectedUserId = swap.from === currentUser.uid ? swap.to : swap.from;
+              return (
+                <div key={swap.id} className="bg-white p-4 rounded-md shadow flex justify-between items-center">
+                  <p className="text-lg font-semibold">{usersMap[connectedUserId]}</p>
+                  <button
+                    onClick={() => navigate(`/mychat`)}
+                    className="bg-primary text-white px-4 py-2 rounded-md hover:bg-secondary"
+                  >
+                    Chat
+                  </button>
+                </div>
+              );
+            }) : <p>No connections yet.</p>}
+          </div>
         </div>
       </div>
     </div>

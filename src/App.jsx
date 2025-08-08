@@ -27,7 +27,7 @@ function App() {
                 SkillSwap
               </a>
             </li>
-            <div className='flex justify-center items-center gap-12 font-body md:invisible'>
+            <div className='flex justify-center items-center gap-12 font-body invisible md:visible'>
               <li>
                 <Link
                   to="/login"
